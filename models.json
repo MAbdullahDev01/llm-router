@@ -1,0 +1,17 @@
+[
+  {
+    "model": "A",
+    "cost": 0.001,
+    "response_time": 0.4
+  },
+  {
+    "model": "B",
+    "cost": 0.005,
+    "response_time": 1.2
+  },
+  {
+    "model": "B",
+    "cost": 0.005,
+    "response_time": 1.2
+  }
+]
