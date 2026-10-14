@@ -5,22 +5,31 @@ def create_mock_data(data : list[dict], file_path):
         json.dump(data, file, indent=2)
 
 if __name__ == "__main__":
-    data = [
+    mock_models = [
         {
             "model" : "A",
-            "cost" : 0.001,
-            "response_time" : 0.4
+            "input_cost_per_million" : 0.2,
+            "output_cost_per_million" : 0.4,
+            "avg_response_time_ms" : 800
         },
         {
             "model" : "B",
-            "cost" : 0.005,
-            "response_time" : 1.2
+            "input_cost_per_million" : 1.0,
+            "output_cost_per_million" : 2.0,
+            "avg_response_time_ms" : 500
         },
         {
-            "model" : "B",
-            "cost" : 0.005,
-            "response_time" : 1.2
+            "model" : "C",
+            "input_cost_per_million" : 1.5,
+            "output_cost_per_million" : 3.0,
+            "avg_response_time_ms" : 150
+        },
+        {
+            "model" : "D",
+            "input_cost_per_million" : 5.0,
+            "output_cost_per_million" : 15.0,
+            "avg_response_time_ms" : 1200
         }
     ]
     file_path = "models.json"
-    create_mock_data(data, file_path)
+    create_mock_data(mock_models, file_path)
