@@ -1,4 +1,6 @@
-def basic_cost_calculation(prompt : str) -> float:
+from memory import Memory
+
+def basic_cost_calculation(prompt : str) -> tuple[float, float, float, float, float]:
 
     # Assuming model uses character tokenization
     chars : int = len(prompt)
@@ -16,4 +18,10 @@ def basic_cost_calculation(prompt : str) -> float:
     cost : float = input_cost + output_cost
 
     # This cost is purely token based; does not yet include caching, extra components, and real-world usage factors like chat history, etc.
-    return cost
+    return input_tokens, output_tokens, input_cost, output_cost, cost
+
+def cost_calculation_with_chat_history(prompt : str, memory : Memory) -> float:
+
+    input_tokens, output_tokens, input_cost, output_cost, cost = basic_cost_calculation(prompt)
+    memory.add_exchange(input_tokens, output_tokens)
+    return memory.total_cost_calculation()
